@@ -77,6 +77,11 @@ modules:
         - polkit-kde
         - plasma-breeze
         - kf6-qqc2-desktop-style
+        - xdg-desktop-portal-gtk
+        - xdg-desktop-portal-wlr
+        - xdg-desktop-portal-gnome
+        - kitty
+        - ptyxis
 
     remove:
       packages:
