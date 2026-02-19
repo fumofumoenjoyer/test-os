@@ -75,6 +75,20 @@ modules:
         - libappindicator-gtk3
         - libindicator
 
+  - type: dnf # packages for virtualization
+    install:
+      packages:
+        - libvirt-daemon-kvm
+        - libvirt-client
+        - virt-manager
+        - virt-viewer
+        - virt-install
+        - qemu-kvm
+        - edk2-ovmf
+        - swtpm
+        - swtpm-tools
+        - libvirt-daemon-config-network
+
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -116,6 +130,7 @@ modules:
   - type: containerfile
     snippets:
       - RUN systemctl enable --global dms
+      - RUN systemctl enable virtqemud.socket virtnetworkd.socket virtstoraged.socket virtproxyd.socket virtnodedevd.socket virtsecretd.socket
 
   
           
