@@ -4,9 +4,13 @@ WIP Linux distribution based on bazzite-gnome and the bluebuild template
 
 ## Features
 MangoWC
+
 DMS Shell
+
 Brew
+
 Podman
+
 Distrobox
 
 ## Installation
