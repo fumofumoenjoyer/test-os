@@ -7,11 +7,40 @@ description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-image-version: 42 # latest is also supported if you want new updates ASAP
+image-version: latest #42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+
+  - type: dnf #packages for japanese kanji rendering instead of chinese fallback and also adding these cool things
+    repos:
+      cleanup: true
+    install:
+      install-weak-deps: false
+      packages:
+        - default-fonts-core-emoji
+        - default-fonts
+        - default-fonts-cjk-sans
+        - google-noto-color-emoji-fonts
+        - google-noto-emoji-fonts
+        - google-noto-sans-cjk-vf-fonts
+        - glibc-all-langpacks
+        - langpacks-ja
+        - langpacks-core-ja
+        - langpacks-fonts-ja
+        
+  # install cdemu
+  - type: dnf
+    repos:
+      copr:
+        - rok/cdemu
+    install:
+      packages:
+        - cdemu-daemon
+        - cdemu-client
+        - gcdemu
+
   - type: files
     files:
       - source: system
@@ -21,10 +50,34 @@ modules:
     repos:
       copr:
         - atim/starship
+        - dennemann/MangoWC
+        - avengemedia/dms
     install:
       packages:
         - micro
-        - starship
+        - mangowc
+        - dms
+        - fastfetch
+        - vim
+        - neovim
+        - htop
+        - btop
+        - fcitx5-configtool
+        - fcitx5-mozc
+        - fcitx5-chinese-addons
+        - fcitx5-gtk
+        - fcitx5-hangul
+        - kcm-fcitx5
+        - glibc-all-langpacks
+        - jetbrains-mono-fonts-all
+        - ptyxis
+        - firewall-config
+        - kf6-kirigami
+        - qt6ct
+        - polkit-kde
+        - plasma-breeze
+        - kf6-qqc2-desktop-style
+
     remove:
       packages:
         # example: removing firefox (in favor of the flatpak)
@@ -38,8 +91,47 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
+          - io.gitlab.librewolf-community
+          - com.brave.Browser
+          - io.mpv.Mpv
+          - org.onlyoffice.desktopeditors
+          - org.kde.elisa
+          - org.kde.gwenview
+          - com.ranfdev.DistroShelf
+          - com.obsproject.Studio
+          - com.github.tchx84.Flatseal
+          - io.github.kolunmi.Bazaar
+
+
+
+  - type: brew
+    nofile-limits: true # increase nofile limits
+    brew-analytics: false # disable telemetry
+          
+
+  # swap kernel to cachyos-lto
+  - type: script
+    scripts:
+      - swap-kernel.sh
+      - initramfs.sh
+
+
+  - type: containerfile
+    snippets:
+      - RUN systemctl enable --global dms
+
+  
+          
+  - type: os-release
+    properties:
+      ID: fumos
+      ID_LIKE: fedora
+      NAME: FumOS
+      VERSION: Reimu
+      PRETTY_NAME: FumOS
+      DEFAULT_HOSTNAME: FumOS
+      VERSION_CODENAME: Reimu
+
+  
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
