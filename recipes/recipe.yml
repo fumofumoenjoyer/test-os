@@ -42,7 +42,6 @@ modules:
         - atim/starship
         - dennemann/MangoWC
         - avengemedia/dms
-        - komapro/nerd-fonts
     install:
       packages:
         - micro
@@ -75,8 +74,17 @@ modules:
         - ptyxis
         - libappindicator-gtk3
         - libindicator
-        - nerd-fonts
 
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode # don't add spaces or "Nerd Font" suffix
+        - Hack
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+    
   - type: dnf # packages for virtualization
     install:
       packages:
