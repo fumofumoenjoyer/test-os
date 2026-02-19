@@ -114,6 +114,15 @@ modules:
           - io.github.kolunmi.Bazaar
 
 
+    - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode
+        - JetBrainsMono
+        - MesloLGS
+        - UbuntuMono
+        - Ubuntu
+        - Hack
 
   - type: brew
     nofile-limits: true # increase nofile limits
