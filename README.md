@@ -20,4 +20,4 @@ then rebase to FumOS
 ```
 sudo bootc switch ghcr.io/fumofumoenjoyer/fumos:latest
 ```
-then reboot, when you get to the login screen clck your user then the "settings" icon and select mango, then log in
+then reboot
