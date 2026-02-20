@@ -29,6 +29,14 @@ modules:
         - langpacks-ja
         - langpacks-core-ja
         - langpacks-fonts-ja
+        - fcitx5-configtool
+        - fcitx5-mozc
+        - fcitx5-chinese-addons
+        - fcitx5-gtk
+        - fcitx5-hangul
+        - kcm-fcitx5
+        - glibc-all-langpacks
+        - jetbrains-mono-fonts-all
         
 
   - type: files
@@ -47,24 +55,9 @@ modules:
         - vim
         - neovim
         - htop
-        - btop
-        - fcitx5-configtool
-        - fcitx5-mozc
-        - fcitx5-chinese-addons
-        - fcitx5-gtk
-        - fcitx5-hangul
-        - kcm-fcitx5
-        - glibc-all-langpacks
-        - jetbrains-mono-fonts-all
-        - ptyxis
         - firewall-config
-        - kf6-kirigami
-        - qt6ct
-        - plasma-breeze
-        - kf6-qqc2-desktop-style
         - ptyxis
-        - libappindicator-gtk3
-        - libindicator
+        - kitty
         - p7zip
         - p7zip-plugins
         - unar
@@ -80,7 +73,6 @@ modules:
         - virt-manager
         - qemu-kvm
         - dnsmasq
-        # Optional: useful for networking
         - bridge-utils
         - virt-viewer
 
@@ -113,15 +105,7 @@ modules:
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
 
-  - type: os-release
-    properties:
-      ID: fumos
-      ID_LIKE: fedora
-      NAME: FumOS
-      VERSION: Cirno
-      PRETTY_NAME: FumOS
-      DEFAULT_HOSTNAME: FumOS
-      VERSION_CODENAME: Cirno
+
       
   # swap kernel
   - type: script
@@ -129,6 +113,13 @@ modules:
       - swap-kernel.sh
       - initramfs.sh
 
-  
+  - type: os-release
+    properties:
+      ID: fumos
+      NAME: FumOS
+      VERSION: Cirno
+      PRETTY_NAME: FumOS
+      DEFAULT_HOSTNAME: FumOS
+      VERSION_CODENAME: Cirno
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
