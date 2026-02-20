@@ -65,7 +65,9 @@ modules:
         - ptyxis
         - libappindicator-gtk3
         - libindicator
-        - 7zip
+        - p7zip
+        - p7zip-plugins
+        - unar
         - distrobox
         
     remove:
