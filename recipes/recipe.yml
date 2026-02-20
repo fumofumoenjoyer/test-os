@@ -6,7 +6,7 @@ name: fumos
 description: FumOS-bootc.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: registry.gitlab.com/origami-linux/images/origami
+base-image: ghcr.io/blue-build/base-images/fedora-cosmic
 image-version: latest #42 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
