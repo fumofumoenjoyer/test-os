@@ -77,6 +77,18 @@ modules:
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
+  - type: dnf
+    install:
+      packages:
+        - libvirt-daemon-kvm
+        - libvirt-client
+        - virt-install
+        - virt-manager
+        - qemu-kvm
+        # Optional: useful for networking
+        - bridge-utils
+        - virt-viewer
+
   - type: fonts
     fonts:
       nerd-fonts:
@@ -91,6 +103,10 @@ modules:
   - type: containerfile
     snippets:
       - RUN flatpak config --set languages "en;ja"
+      - RUN systemctl enable virtqemud.socket \
+                   virtnetworkd.socket \
+                   virtstoraged.socket \
+                   virtproxyd.socket
 
   - type: default-flatpaks
     configurations:
