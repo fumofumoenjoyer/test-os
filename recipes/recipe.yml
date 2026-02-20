@@ -104,10 +104,7 @@ modules:
   - type: containerfile
     snippets:
       - RUN flatpak config --set languages "en;ja"
-      - RUN systemctl enable virtqemud \
-                  virtnetworkd \
-                  virtstoraged \
-                  virtproxyd
+      - RUN systemctl enable virtqemud.socket virtnetworkd.socket virtstoraged.socket virtproxyd.socket
 
   - type: default-flatpaks
     configurations:
