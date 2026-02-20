@@ -85,6 +85,7 @@ modules:
         - virt-install
         - virt-manager
         - qemu-kvm
+        - dnsmasq
         # Optional: useful for networking
         - bridge-utils
         - virt-viewer
@@ -103,10 +104,10 @@ modules:
   - type: containerfile
     snippets:
       - RUN flatpak config --set languages "en;ja"
-      - RUN systemctl enable virtqemud.socket \
-                   virtnetworkd.socket \
-                   virtstoraged.socket \
-                   virtproxyd.socket
+      - RUN systemctl enable virtqemud \
+                   virtnetworkd \
+                   virtstoraged \
+                   virtproxyd
 
   - type: default-flatpaks
     configurations:
