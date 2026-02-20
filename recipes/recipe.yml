@@ -70,12 +70,6 @@ modules:
         - unar
         - distrobox
         
-    remove:
-      packages:
-        # example: removing firefox (in favor of the flatpak)
-        # "firefox" is the main package, "firefox-langpacks" is a dependency
-        - firefox
-        - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
   - type: dnf
     install:
@@ -112,23 +106,7 @@ modules:
         scope: system
         # If no repo information is specified, Flathub will be used by default
         install: # system flatpaks we want all users to have and not remove
-          - io.gitlab.librewolf-community
           - com.brave.Browser
-          - io.mpv.Mpv
-          - org.onlyoffice.desktopeditors
-          - com.ranfdev.DistroShelf
-          - com.obsproject.Studio
-          - com.obsproject.Studio.Plugin.GStreamerVaapi
-          - com.obsproject.Studio.Plugin.Gstreamer
-          - com.obsproject.Studio.Plugin.OBSVkCapture
-          - org.freedesktop.Platform.VulkanLayer.OBSVkCapture
-          - org.freedesktop.Platform.VulkanLayer.vkBasalt
-          - com.github.tchx84.Flatseal
-          - com.discordapp.Discord
-          - com.github.Matoking.protontricks
-          - com.vysp3r.ProtonPlus
-          - io.github.flattool.Warehouse
-          - org.qbittorrent.qBittorrent
           
   
   - type: brew
