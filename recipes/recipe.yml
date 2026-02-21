@@ -18,6 +18,9 @@ modules:
       cleanup: true
     install:
       install-weak-deps: false
+      exclude:
+        - ark
+        - ark-libs
       packages:
         - default-fonts-core-emoji
         - default-fonts
@@ -57,6 +60,9 @@ modules:
         - bieszczaders/kernel-cachyos-addons
         - ublue-os/staging
     install:
+      exclude:
+        - ark
+        - ark-libs
       packages:
         - micro
         - fastfetch
@@ -81,6 +87,9 @@ modules:
 
   - type: dnf
     install:
+      exclude:
+        - ark
+        - ark-libs
       packages:
         - libvirt-daemon-kvm
         - libvirt-client
@@ -125,9 +134,12 @@ modules:
     nofile-limits: true # increase nofile limits
     brew-analytics: false # disable telemetry
 
-
-      
-
+  - type: dnf
+    remove:
+      auto-remove: false
+      packages:
+        - ark
+        - ark-libs
 
   - type: os-release
     properties:
