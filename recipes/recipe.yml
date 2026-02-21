@@ -115,7 +115,7 @@ modules:
         install: # system flatpaks we want all users to have and not remove
           - com.brave.Browser
           - org.mozilla.Thunderbird
-          - org.kde.ark
+          - org.gnome.FileRoller
           - org.gnome.gThumb
           - org.atheme.audacious
         
